@@ -30,6 +30,10 @@ namespace XmlJsonBeautifier
                 SetClipboardText(BeautifyJson(text));
                 return;
             }
+            else if (Clipboard.ContainsText(TextDataFormat.Html) || Clipboard.ContainsText(TextDataFormat.Rtf))
+            {
+                SetClipboardText(text);
+            }
         }
 
         private static string BeautifyXml(string xml)
@@ -73,6 +77,10 @@ namespace XmlJsonBeautifier
 
         private static string GetClipboardText()
         {
+            if(Clipboard.ContainsText(TextDataFormat.Html))
+            {
+
+            }
             if (Clipboard.ContainsData(DataFormats.Text))
             {
                 try
